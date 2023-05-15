@@ -111,7 +111,7 @@ struct SubmitReportView: View {
                         }
                         .padding(.bottom)
                         Group {
-                            NavigationLink(destination:  ReportListView()) {
+                            NavigationLink(destination:  MainView()) {
                                 Text("Submit")
                             }
                             .buttonStyle(BlueButton())
