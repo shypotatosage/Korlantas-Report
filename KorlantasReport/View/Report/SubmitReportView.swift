@@ -10,6 +10,7 @@ import SwiftUI
 import PhotosUI
 
 struct SubmitReportView: View {
+    @State private var newReport = Report.emptyReport
     @EnvironmentObject var reportViewModel: ReportViewModel
         @State private var showToast = false
     @State private var selectedItem: PhotosPickerItem? = nil
@@ -41,7 +42,7 @@ struct SubmitReportView: View {
                                 .padding()
                             TextField(
                                 "Masukkan Judul Report",
-                                text: $judul
+                                text: $newReport.title
                             )
                             .padding()
                             .disableAutocorrection(true)
@@ -116,6 +117,7 @@ struct SubmitReportView: View {
                             Button("Submit"){
 //                            NavigationLink(destination:  MainView()) {
 //                                Text("Submit")
+                                reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: newReport.image)
                                 showToast.toggle()
                             }
                             .buttonStyle(BlueButton())
@@ -126,9 +128,8 @@ struct SubmitReportView: View {
                         )
                     Spacer()        }
             }.toast(isPresenting: $showToast){
-                                AlertToast(type: .regular, title: "added")
+                                AlertToast(type: .regular, title: newReport.title)
                             }
-            //            }
             .scrollContentBackground(.hidden)
             
             .listRowSeparator(.hidden)
@@ -140,7 +141,7 @@ struct SubmitReportView: View {
 
 struct SubmitReportView_Previews: PreviewProvider {
     static var previews: some View {
-//        SubmitReportView(isAddViewMovie: .constant(true))
+        //        SubmitReportView(isAddViewMovie: .constant(true))
         SubmitReportView()
     }
 }
