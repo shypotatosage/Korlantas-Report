@@ -12,7 +12,7 @@ struct KorlantasReportApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            SubmitReportView(submitReportViewModel: ReportViewModel.init())
+            SubmitReportView()
         }
     }
 }
