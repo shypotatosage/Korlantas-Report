@@ -11,7 +11,8 @@ import SwiftUI
 struct KorlantasReportApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            SubmitReportView(submitReportViewModel: ReportViewModel.init())
         }
     }
 }
