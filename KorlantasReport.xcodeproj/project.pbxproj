@@ -45,6 +45,7 @@
 		068372702A121D6300CA09EA /* SubmitReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683726F2A121D6300CA09EA /* SubmitReportView.swift */; };
 		068372722A121D6A00CA09EA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068372712A121D6A00CA09EA /* MainView.swift */; };
 		068372752A121ED600CA09EA /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 068372742A121ED600CA09EA /* AlertToast */; };
+		068372772A12831300CA09EA /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068372762A12831300CA09EA /* ReportView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		0683725A2A121D4000CA09EA /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		0683726F2A121D6300CA09EA /* SubmitReportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitReportView.swift; sourceTree = "<group>"; };
 		068372712A121D6A00CA09EA /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		068372762A12831300CA09EA /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				0683726F2A121D6300CA09EA /* SubmitReportView.swift */,
+				068372762A12831300CA09EA /* ReportView.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				068372442A121D0400CA09EA /* Color.swift in Sources */,
 				04A8DA622A12198B008BD700 /* KorlantasReportApp.swift in Sources */,
 				068372352A121C8300CA09EA /* Report.swift in Sources */,
+				068372772A12831300CA09EA /* ReportView.swift in Sources */,
 				068372412A121D0400CA09EA /* CustomButton.swift in Sources */,
 				068372392A121CD800CA09EA /* ReportViewModel.swift in Sources */,
 				068372402A121D0400CA09EA /* RedButton.swift in Sources */,
@@ -596,6 +600,7 @@
 				DEVELOPMENT_TEAM = 9KGU3SB5D7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KorlantasReport/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -625,6 +630,7 @@
 				DEVELOPMENT_TEAM = 9KGU3SB5D7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KorlantasReport/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -10,6 +10,8 @@ import SwiftUI
 import PhotosUI
 
 struct SubmitReportView: View {
+    @EnvironmentObject var reportViewModel: ReportViewModel
+        @State private var showToast = false
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
 //    @State var width: CGFloat
@@ -111,8 +113,10 @@ struct SubmitReportView: View {
                         }
                         .padding(.bottom)
                         Group {
-                            NavigationLink(destination:  MainView()) {
-                                Text("Submit")
+                            Button("Submit"){
+//                            NavigationLink(destination:  MainView()) {
+//                                Text("Submit")
+                                showToast.toggle()
                             }
                             .buttonStyle(BlueButton())
                         }
@@ -121,7 +125,9 @@ struct SubmitReportView: View {
                         .textFieldStyle(.roundedBorder
                         )
                     Spacer()        }
-            }
+            }.toast(isPresenting: $showToast){
+                                AlertToast(type: .regular, title: "added")
+                            }
             //            }
             .scrollContentBackground(.hidden)
             
@@ -131,8 +137,10 @@ struct SubmitReportView: View {
     }
 }
 
+
 struct SubmitReportView_Previews: PreviewProvider {
     static var previews: some View {
+//        SubmitReportView(isAddViewMovie: .constant(true))
         SubmitReportView()
     }
 }
