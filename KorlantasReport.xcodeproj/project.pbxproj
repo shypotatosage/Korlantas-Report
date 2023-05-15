@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04A8DA622A12198B008BD700 /* KorlantasReportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8DA612A12198B008BD700 /* KorlantasReportApp.swift */; };
+		04A8DA642A12198B008BD700 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8DA632A12198B008BD700 /* ContentView.swift */; };
+		04A8DA662A12198C008BD700 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A8DA652A12198C008BD700 /* Assets.xcassets */; };
+		04A8DA692A12198C008BD700 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A8DA682A12198C008BD700 /* Preview Assets.xcassets */; };
+		04A8DA732A12198D008BD700 /* KorlantasReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8DA722A12198D008BD700 /* KorlantasReportTests.swift */; };
+		04A8DA7D2A12198D008BD700 /* KorlantasReportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8DA7C2A12198D008BD700 /* KorlantasReportUITests.swift */; };
+		04A8DA7F2A12198D008BD700 /* KorlantasReportUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8DA7E2A12198D008BD700 /* KorlantasReportUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04A8DA6F2A12198D008BD700 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04A8DA562A12198B008BD700 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04A8DA5D2A12198B008BD700;
+			remoteInfo = KorlantasReport;
+		};
+		04A8DA792A12198D008BD700 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04A8DA562A12198B008BD700 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04A8DA5D2A12198B008BD700;
+			remoteInfo = KorlantasReport;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04A8DA5E2A12198B008BD700 /* KorlantasReport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KorlantasReport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A8DA612A12198B008BD700 /* KorlantasReportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorlantasReportApp.swift; sourceTree = "<group>"; };
+		04A8DA632A12198B008BD700 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		04A8DA652A12198C008BD700 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04A8DA682A12198C008BD700 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		04A8DA6E2A12198D008BD700 /* KorlantasReportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KorlantasReportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A8DA722A12198D008BD700 /* KorlantasReportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorlantasReportTests.swift; sourceTree = "<group>"; };
+		04A8DA782A12198D008BD700 /* KorlantasReportUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KorlantasReportUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A8DA7C2A12198D008BD700 /* KorlantasReportUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorlantasReportUITests.swift; sourceTree = "<group>"; };
+		04A8DA7E2A12198D008BD700 /* KorlantasReportUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorlantasReportUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04A8DA5B2A12198B008BD700 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04A8DA6B2A12198D008BD700 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04A8DA752A12198D008BD700 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04A8DA552A12198B008BD700 = {
+			isa = PBXGroup;
+			children = (
+				04A8DA602A12198B008BD700 /* KorlantasReport */,
+				04A8DA712A12198D008BD700 /* KorlantasReportTests */,
+				04A8DA7B2A12198D008BD700 /* KorlantasReportUITests */,
+				04A8DA5F2A12198B008BD700 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04A8DA5F2A12198B008BD700 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04A8DA5E2A12198B008BD700 /* KorlantasReport.app */,
+				04A8DA6E2A12198D008BD700 /* KorlantasReportTests.xctest */,
+				04A8DA782A12198D008BD700 /* KorlantasReportUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04A8DA602A12198B008BD700 /* KorlantasReport */ = {
+			isa = PBXGroup;
+			children = (
+				04A8DA612A12198B008BD700 /* KorlantasReportApp.swift */,
+				04A8DA632A12198B008BD700 /* ContentView.swift */,
+				04A8DA652A12198C008BD700 /* Assets.xcassets */,
+				04A8DA672A12198C008BD700 /* Preview Content */,
+			);
+			path = KorlantasReport;
+			sourceTree = "<group>";
+		};
+		04A8DA672A12198C008BD700 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				04A8DA682A12198C008BD700 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		04A8DA712A12198D008BD700 /* KorlantasReportTests */ = {
+			isa = PBXGroup;
+			children = (
+				04A8DA722A12198D008BD700 /* KorlantasReportTests.swift */,
+			);
+			path = KorlantasReportTests;
+			sourceTree = "<group>";
+		};
+		04A8DA7B2A12198D008BD700 /* KorlantasReportUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04A8DA7C2A12198D008BD700 /* KorlantasReportUITests.swift */,
+				04A8DA7E2A12198D008BD700 /* KorlantasReportUITestsLaunchTests.swift */,
+			);
+			path = KorlantasReportUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04A8DA5D2A12198B008BD700 /* KorlantasReport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04A8DA822A12198D008BD700 /* Build configuration list for PBXNativeTarget "KorlantasReport" */;
+			buildPhases = (
+				04A8DA5A2A12198B008BD700 /* Sources */,
+				04A8DA5B2A12198B008BD700 /* Frameworks */,
+				04A8DA5C2A12198B008BD700 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KorlantasReport;
+			productName = KorlantasReport;
+			productReference = 04A8DA5E2A12198B008BD700 /* KorlantasReport.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04A8DA6D2A12198D008BD700 /* KorlantasReportTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04A8DA852A12198D008BD700 /* Build configuration list for PBXNativeTarget "KorlantasReportTests" */;
+			buildPhases = (
+				04A8DA6A2A12198D008BD700 /* Sources */,
+				04A8DA6B2A12198D008BD700 /* Frameworks */,
+				04A8DA6C2A12198D008BD700 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04A8DA702A12198D008BD700 /* PBXTargetDependency */,
+			);
+			name = KorlantasReportTests;
+			productName = KorlantasReportTests;
+			productReference = 04A8DA6E2A12198D008BD700 /* KorlantasReportTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04A8DA772A12198D008BD700 /* KorlantasReportUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04A8DA882A12198D008BD700 /* Build configuration list for PBXNativeTarget "KorlantasReportUITests" */;
+			buildPhases = (
+				04A8DA742A12198D008BD700 /* Sources */,
+				04A8DA752A12198D008BD700 /* Frameworks */,
+				04A8DA762A12198D008BD700 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04A8DA7A2A12198D008BD700 /* PBXTargetDependency */,
+			);
+			name = KorlantasReportUITests;
+			productName = KorlantasReportUITests;
+			productReference = 04A8DA782A12198D008BD700 /* KorlantasReportUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04A8DA562A12198B008BD700 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					04A8DA5D2A12198B008BD700 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					04A8DA6D2A12198D008BD700 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 04A8DA5D2A12198B008BD700;
+					};
+					04A8DA772A12198D008BD700 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 04A8DA5D2A12198B008BD700;
+					};
+				};
+			};
+			buildConfigurationList = 04A8DA592A12198B008BD700 /* Build configuration list for PBXProject "KorlantasReport" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04A8DA552A12198B008BD700;
+			productRefGroup = 04A8DA5F2A12198B008BD700 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04A8DA5D2A12198B008BD700 /* KorlantasReport */,
+				04A8DA6D2A12198D008BD700 /* KorlantasReportTests */,
+				04A8DA772A12198D008BD700 /* KorlantasReportUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04A8DA5C2A12198B008BD700 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A8DA692A12198C008BD700 /* Preview Assets.xcassets in Resources */,
+				04A8DA662A12198C008BD700 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04A8DA6C2A12198D008BD700 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04A8DA762A12198D008BD700 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04A8DA5A2A12198B008BD700 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A8DA642A12198B008BD700 /* ContentView.swift in Sources */,
+				04A8DA622A12198B008BD700 /* KorlantasReportApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04A8DA6A2A12198D008BD700 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A8DA732A12198D008BD700 /* KorlantasReportTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04A8DA742A12198D008BD700 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A8DA7F2A12198D008BD700 /* KorlantasReportUITestsLaunchTests.swift in Sources */,
+				04A8DA7D2A12198D008BD700 /* KorlantasReportUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04A8DA702A12198D008BD700 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04A8DA5D2A12198B008BD700 /* KorlantasReport */;
+			targetProxy = 04A8DA6F2A12198D008BD700 /* PBXContainerItemProxy */;
+		};
+		04A8DA7A2A12198D008BD700 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04A8DA5D2A12198B008BD700 /* KorlantasReport */;
+			targetProxy = 04A8DA792A12198D008BD700 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		04A8DA802A12198D008BD700 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04A8DA812A12198D008BD700 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04A8DA832A12198D008BD700 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"KorlantasReport/Preview Content\"";
+				DEVELOPMENT_TEAM = 9KGU3SB5D7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = korlantasreport.KorlantasReport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04A8DA842A12198D008BD700 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"KorlantasReport/Preview Content\"";
+				DEVELOPMENT_TEAM = 9KGU3SB5D7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = korlantasreport.KorlantasReport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		04A8DA862A12198D008BD700 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KGU3SB5D7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = korlantasreport.KorlantasReportTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KorlantasReport.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KorlantasReport";
+			};
+			name = Debug;
+		};
+		04A8DA872A12198D008BD700 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KGU3SB5D7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = korlantasreport.KorlantasReportTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KorlantasReport.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KorlantasReport";
+			};
+			name = Release;
+		};
+		04A8DA892A12198D008BD700 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KGU3SB5D7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = korlantasreport.KorlantasReportUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KorlantasReport;
+			};
+			name = Debug;
+		};
+		04A8DA8A2A12198D008BD700 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KGU3SB5D7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = korlantasreport.KorlantasReportUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KorlantasReport;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04A8DA592A12198B008BD700 /* Build configuration list for PBXProject "KorlantasReport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04A8DA802A12198D008BD700 /* Debug */,
+				04A8DA812A12198D008BD700 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04A8DA822A12198D008BD700 /* Build configuration list for PBXNativeTarget "KorlantasReport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04A8DA832A12198D008BD700 /* Debug */,
+				04A8DA842A12198D008BD700 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04A8DA852A12198D008BD700 /* Build configuration list for PBXNativeTarget "KorlantasReportTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04A8DA862A12198D008BD700 /* Debug */,
+				04A8DA872A12198D008BD700 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04A8DA882A12198D008BD700 /* Build configuration list for PBXNativeTarget "KorlantasReportUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04A8DA892A12198D008BD700 /* Debug */,
+				04A8DA8A2A12198D008BD700 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04A8DA562A12198B008BD700 /* Project object */;
+}
