@@ -71,7 +71,7 @@ struct SubmitReportView: View {
                                 .padding()
                             TextField(
                                 "Ceritakan Laporan / Keluhan Anda",
-                                text: $isiLaporan
+                                text: $newReport.location
                             )
                             .padding()
                             .disableAutocorrection(true)
@@ -128,7 +128,7 @@ struct SubmitReportView: View {
                         )
                     Spacer()        }
             }.toast(isPresenting: $showToast){
-                                AlertToast(type: .regular, title: newReport.title)
+                AlertToast(type: .regular, title: "\(newReport.title), \(newReport.location)")
                             }
             .scrollContentBackground(.hidden)
             
