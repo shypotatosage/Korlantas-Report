@@ -12,14 +12,16 @@ import PhotosUI
 struct SubmitReportView: View {
     @State private var newReport = Report.emptyReport
     @EnvironmentObject var reportViewModel: ReportViewModel
+    
         @State private var showToast = false
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
 //    @State var width: CGFloat
 //    var user: User
-    @State private var judul: String = ""
-    @State private var isiLaporan: String = ""
-    @State private var tanggalkejadian = Date.now
+    @State private var title: String = ""
+    @State private var location: String = ""
+    @State private var reportContent: String = ""
+    @State private var dateHappen = Date.now
     var body: some View {
         VStack{
             NavigationStack {
@@ -33,7 +35,7 @@ struct SubmitReportView: View {
                         .foregroundColor(Color(hex: "002C5F"))
                     VStack(){
                         Group {
-                            Text("Report Title")
+                            Text("Judul Laporan")
                                 .customFont(.title).foregroundColor(Color(hex: "002C5F"))
                                 .frame(
                                     maxWidth: .infinity,
@@ -48,6 +50,21 @@ struct SubmitReportView: View {
                             .disableAutocorrection(true)
                         }
                         Group {
+                            Text("Lokasi Kejadian")
+                                .customFont(.title).foregroundColor(Color(hex: "002C5F"))
+                                .frame(
+                                    maxWidth: .infinity,
+                                    maxHeight: .zero,
+                                    alignment:  .topLeading)
+                                .padding()
+                            TextField(
+                                "Masukkan Lokasi Kejadian",
+                                text: $newReport.location
+                            )
+                            .padding()
+                            .disableAutocorrection(true)
+                        }
+                        Group {
                             Text("Tanggal dan Waktu Kejadian")
                                 .customFont(.title).foregroundColor(Color(hex: "002C5F"))
                                 .frame(
@@ -56,8 +73,8 @@ struct SubmitReportView: View {
                                     alignment:  .topLeading)
                                 .padding()
                             
-                            DatePicker(selection: $tanggalkejadian, in: ...Date.now, displayedComponents: .date){
-                                Text("\(tanggalkejadian.formatted(date: .long, time: .omitted))")
+                            DatePicker(selection: $dateHappen, in: ...Date.now, displayedComponents: .date){
+                                Text("\(dateHappen.formatted(date: .long, time: .omitted))")
                             }.padding()
                             
                         }
@@ -71,7 +88,7 @@ struct SubmitReportView: View {
                                 .padding()
                             TextField(
                                 "Ceritakan Laporan / Keluhan Anda",
-                                text: $newReport.location
+                                text: $newReport.description
                             )
                             .padding()
                             .disableAutocorrection(true)
@@ -127,8 +144,9 @@ struct SubmitReportView: View {
                         .textFieldStyle(.roundedBorder
                         )
                     Spacer()        }
+//          Alert when report submitted
             }.toast(isPresenting: $showToast){
-                AlertToast(type: .regular, title: "\(newReport.title), \(newReport.location)")
+                AlertToast(type: .regular, title: "Laporan telah diterima dan akan segera diproses")
                             }
             .scrollContentBackground(.hidden)
             
