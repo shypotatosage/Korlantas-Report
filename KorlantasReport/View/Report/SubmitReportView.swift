@@ -63,6 +63,7 @@ struct SubmitReportView: View {
                             )
                             .padding()
                             .disableAutocorrection(true)
+                            Text("Lokasi Kejadian Tidak Boleh Kosong")
                         }
                         Group {
                             Text("Tanggal dan Waktu Kejadian")
@@ -101,6 +102,7 @@ struct SubmitReportView: View {
                                     maxHeight: .zero,
                                     alignment:  .topLeading)
                                 .padding()
+//                          Add image from Galery
                             PhotosPicker(
                                 selection: $selectedItem,
                                 matching: .images,
@@ -123,10 +125,19 @@ struct SubmitReportView: View {
                                     .scaledToFit()
                                     .frame(width: 250, height: 250)
                             }else{
-                                Image("defaultprofile")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 150, height: 150)
+                                ZStack{
+                                    Rectangle()
+                                                   .fill(.gray)
+                                                    .frame(width: 250, height: 150)
+                                    VStack{
+                                        Text("Add Image")
+                                        Image(systemName: "plus.app")
+                                    }
+                                }
+//                                Image("defaultprofile")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 150, height: 150)
                             }
                         }
                         .padding(.bottom)
@@ -138,6 +149,7 @@ struct SubmitReportView: View {
                                 showToast.toggle()
                             }
                             .buttonStyle(BlueButton())
+//                            .disabled(title.isEmpty || location.isEmpty || reportContent.isEmpty)
                         }
                         
                     }.padding()

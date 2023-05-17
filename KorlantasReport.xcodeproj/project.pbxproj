@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041AC5EB2A159E87007B05E2 /* CreateValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041AC5EA2A159E87007B05E2 /* CreateValidator.swift */; };
 		04A8DA622A12198B008BD700 /* KorlantasReportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8DA612A12198B008BD700 /* KorlantasReportApp.swift */; };
 		04A8DA642A12198B008BD700 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8DA632A12198B008BD700 /* ContentView.swift */; };
 		04A8DA662A12198C008BD700 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A8DA652A12198C008BD700 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041AC5EA2A159E87007B05E2 /* CreateValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateValidator.swift; path = KorlantasReport/Validator/CreateValidator.swift; sourceTree = SOURCE_ROOT; };
 		04A8DA5E2A12198B008BD700 /* KorlantasReport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KorlantasReport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A8DA612A12198B008BD700 /* KorlantasReportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorlantasReportApp.swift; sourceTree = "<group>"; };
 		04A8DA632A12198B008BD700 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041AC5E92A159E48007B05E2 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				041AC5EA2A159E87007B05E2 /* CreateValidator.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		04A8DA552A12198B008BD700 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +168,7 @@
 		04A8DA602A12198B008BD700 /* KorlantasReport */ = {
 			isa = PBXGroup;
 			children = (
+				041AC5E92A159E48007B05E2 /* New Group */,
 				068372472A121D4000CA09EA /* Poppins */,
 				068372452A121D2200CA09EA /* Info.plist */,
 				0683723A2A121D0400CA09EA /* Helper */,
@@ -426,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041AC5EB2A159E87007B05E2 /* CreateValidator.swift in Sources */,
 				068372432A121D0400CA09EA /* CustomFont.swift in Sources */,
 				068372722A121D6A00CA09EA /* MainView.swift in Sources */,
 				068372372A121C9600CA09EA /* User.swift in Sources */,

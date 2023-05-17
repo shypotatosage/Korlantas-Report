@@ -10,6 +10,8 @@ import Foundation
 class ReportViewModel: ObservableObject{
     @Published var reports: [Report] = []
     
+    private let validator = CreateValidator()
+    
     private static func fileURL() throws -> URL{
         try FileManager.default.url(
             for: .documentDirectory,
@@ -44,7 +46,14 @@ class ReportViewModel: ObservableObject{
     }
     
     func submitReport(title: String, location: String, datetime: String, description: String, image: String){
-        reports.append(Report(title: title,location: location,datetime: datetime, description: description, image: image, status: "Pending", user: User.sampleUser))
+        do{
+//            try validator.validate([Report])
+            reports.append(Report(title: title,location: location,datetime: datetime, description: description, image: image, status: "Pending", user: User.sampleUser))
+        } catch{
+            print(error)
+        }
+        
+        
         
     }
 }
