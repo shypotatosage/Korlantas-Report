@@ -12,15 +12,13 @@ import PhotosUI
 struct SubmitReportView: View {
     @State private var newReport = Report.emptyReport
     @EnvironmentObject var reportViewModel: ReportViewModel
-    
+    @State var isError = false
         @State private var showToast = false
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
 //    @State var width: CGFloat
 //    var user: User
-    @State private var title: String = ""
-    @State private var location: String = ""
-    @State private var reportContent: String = ""
+    
     @State private var dateHappen = Date.now
     var body: some View {
         VStack{
@@ -48,6 +46,10 @@ struct SubmitReportView: View {
                             )
                             .padding()
                             .disableAutocorrection(true)
+                            if isError == true{
+                                Text("Judul Laporan Harus Diisi")
+                                    .foregroundColor(.red)
+                            }
                         }
                         Group {
                             Text("Lokasi Kejadian")
@@ -63,7 +65,10 @@ struct SubmitReportView: View {
                             )
                             .padding()
                             .disableAutocorrection(true)
-                            Text("Lokasi Kejadian Tidak Boleh Kosong")
+                            if isError == true{
+                                Text("Lokasi Kejadian Harus Diisi")
+                                    .foregroundColor(.red)
+                            }
                         }
                         Group {
                             Text("Tanggal dan Waktu Kejadian")
@@ -93,6 +98,10 @@ struct SubmitReportView: View {
                             )
                             .padding()
                             .disableAutocorrection(true)
+                            if isError == true{
+                                Text("Laporan Kejadian Harus Diisi")
+                                    .foregroundColor(.red)
+                            }
                         }
                         Group{
                             Text("Gambar")
@@ -134,22 +143,23 @@ struct SubmitReportView: View {
                                         Image(systemName: "plus.app")
                                     }
                                 }
-//                                Image("defaultprofile")
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .frame(width: 150, height: 150)
                             }
                         }
                         .padding(.bottom)
                         Group {
                             Button("Submit"){
-//                            NavigationLink(destination:  MainView()) {
-//                                Text("Submit")
-                                reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: newReport.image)
-                                showToast.toggle()
+                                if (newReport.title.isEmpty || newReport.location.isEmpty || newReport.description.isEmpty){
+                                    isError = true
+                                    
+                                }else{
+                                    //                            NavigationLink(destination:  MainView()) {
+                                    //                                Text("Submit")
+                                    isError = false
+                                    reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: newReport.image)
+                                    showToast.toggle()
+                                }
                             }
                             .buttonStyle(BlueButton())
-//                            .disabled(title.isEmpty || location.isEmpty || reportContent.isEmpty)
                         }
                         
                     }.padding()
