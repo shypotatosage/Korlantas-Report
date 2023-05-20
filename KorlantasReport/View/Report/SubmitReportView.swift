@@ -16,14 +16,11 @@ struct SubmitReportView: View {
         @State private var showToast = false
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
-//    @State var width: CGFloat
-//    var user: User
     
     @State private var dateHappen = Date.now
     var body: some View {
         VStack{
             NavigationStack {
-                //                List {
                 ScrollView{
                     Text("Add a Report")
                         .customFont(.largeTitle)
@@ -46,10 +43,13 @@ struct SubmitReportView: View {
                             )
                             .padding()
                             .disableAutocorrection(true)
-                            if isError == true{
-                                Text("Judul Laporan Harus Diisi")
-                                    .foregroundColor(.red)
-                            }
+                        }
+                        if newReport.title.count > 255 {
+                            Text("Maks. 255 karakter")
+                                .foregroundColor(.red)
+                        } else if isError == true && newReport.title.isEmpty {
+                            Text("Judul Laporan Harus Diisi")
+                                .foregroundColor(.red)
                         }
                         Group {
                             Text("Lokasi Kejadian")
@@ -65,10 +65,13 @@ struct SubmitReportView: View {
                             )
                             .padding()
                             .disableAutocorrection(true)
-                            if isError == true{
-                                Text("Lokasi Kejadian Harus Diisi")
-                                    .foregroundColor(.red)
-                            }
+                        }
+                        if newReport.location.count > 255 {
+                            Text("Maks. 255 karakter")
+                                .foregroundColor(.red)
+                        } else if isError == true && newReport.location.isEmpty {
+                            Text("Lokasi Kejadian Harus Diisi")
+                                .foregroundColor(.red)
                         }
                         Group {
                             Text("Tanggal Kejadian")
@@ -98,10 +101,13 @@ struct SubmitReportView: View {
                             )
                             .padding()
                             .disableAutocorrection(true)
-                            if isError == true{
-                                Text("Laporan Kejadian Harus Diisi")
-                                    .foregroundColor(.red)
-                            }
+                        }
+                        if newReport.description.count > 500 {
+                            Text("Maks. 500 karakter")
+                                .foregroundColor(.red)
+                        } else if isError == true  && newReport.description.isEmpty {
+                            Text("Laporan Kejadian Harus Diisi")
+                                .foregroundColor(.red)
                         }
                         Group{
                             Text("Gambar")
@@ -136,8 +142,8 @@ struct SubmitReportView: View {
                             }else{
                                 ZStack{
                                     Rectangle()
-                                                   .fill(.gray)
-                                                    .frame(width: 250, height: 150)
+                                        .fill(.gray)
+                                        .frame(width: 250, height: 150)
                                     VStack{
                                         Text("Add Image")
                                         Image(systemName: "plus.app")
@@ -148,10 +154,10 @@ struct SubmitReportView: View {
                         .padding(.bottom)
                         Group {
                             Button("Submit"){
-                                if (newReport.title.isEmpty || newReport.location.isEmpty || newReport.description.isEmpty){
+                                if (newReport.title.isEmpty || newReport.location.isEmpty || newReport.description.isEmpty) {
                                     isError = true
                                     
-                                }else{
+                                } else {
                                     //                            NavigationLink(destination:  MainView()) {
                                     //                                Text("Submit")
                                     isError = false
@@ -162,10 +168,11 @@ struct SubmitReportView: View {
                             .buttonStyle(BlueButton())
                         }
                         
-                    }.padding()
-                        .textFieldStyle(.roundedBorder
-                        )
-                    Spacer()        }
+                    }
+                    .padding()
+                    .textFieldStyle(.roundedBorder)
+                    Spacer()
+                }
 //          Alert when report submitted
             }.toast(isPresenting: $showToast){
                 AlertToast(type: .regular, title: "Laporan telah diterima dan akan segera diproses")
@@ -181,7 +188,6 @@ struct SubmitReportView: View {
 
 struct SubmitReportView_Previews: PreviewProvider {
     static var previews: some View {
-        //        SubmitReportView(isAddViewMovie: .constant(true))
         SubmitReportView()
     }
 }
