@@ -71,7 +71,7 @@ struct SubmitReportView: View {
                             }
                         }
                         Group {
-                            Text("Tanggal dan Waktu Kejadian")
+                            Text("Tanggal Kejadian")
                                 .customFont(.title).foregroundColor(Color(hex: "002C5F"))
                                 .frame(
                                     maxWidth: .infinity,
