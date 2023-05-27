@@ -160,6 +160,7 @@ struct SubmitReportView: View {
                                 } else {
                                     //                            NavigationLink(destination:  MainView()) {
                                     //                                Text("Submit")
+                                    newReport.datetime = dateHappen.description
                                     isError = false
                                     reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: newReport.image)
                                     showToast.toggle()
@@ -175,7 +176,7 @@ struct SubmitReportView: View {
                 }
 //          Alert when report submitted
             }.toast(isPresenting: $showToast){
-                AlertToast(type: .regular, title: "Laporan telah diterima dan akan segera diproses")
+                AlertToast(type: .regular, title: "Laporan telah diterima dan akan segera diproses \(newReport.datetime)")
                             }
             .scrollContentBackground(.hidden)
             

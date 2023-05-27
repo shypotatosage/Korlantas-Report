@@ -46,32 +46,46 @@ class ReportViewModel: ObservableObject{
     }
     
     func submitReport(title: String, location: String, datetime: String, description: String, image: String){
-        guard let url =  URL(string: postURL) else { return }
+//        guard let url =  URL(string: postURL) else { return }
+//        print(url)
         
         let encoder = JSONEncoder()
         
         let newReport = Report(title: title,location: location,datetime: datetime, description: description, image: image, status: "Pending", user: User.sampleUser)
-        
-        let finalData = try! encoder.encode(newReport)
-        
+print(newReport)
+        // create post request
+        let url = URL(string: postURL)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.httpBody = finalData
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        URLSession.shared.dataTask(with: request) { (data, res, err) in
-            do {
-                if let data = data {
-                    let result = try JSONDecoder().decode(Report.self, from: data)
-                    print(result)
-                } else {
-                    print("No data")
+        let json: [String: Any] = ["title": title, "location":location, "time":"2023-05-27 15:59:19","description": "2023-05-27 15:59:19", "picture":image,"user_id": User.sampleUser.id]
+        print(json)
+        do {
+        var jsonData = try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted)
+            request.httpMethod = "POST"
+            request.httpBody = jsonData
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            print(request)
+//            print(jsonData!)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    return
                 }
-            } catch (let error) {
-                print("error: ", error.localizedDescription)
+                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let responseJSON = responseJSON as? [String: Any] {
+                    print(responseJSON)
+                }
+                print(response)
             }
+
+            task.resume()
+        } catch {
+            
+            print(error.localizedDescription)
         }
-        
+//         jsonData = try! encoder.encode(jsonData)
+//        var request = URLRequest(url: url)
+  
 //            reports.append(Report(title: title,location: location,datetime: datetime, description: description, image: image, status: "Pending", user: User.sampleUser))
     }
 }
