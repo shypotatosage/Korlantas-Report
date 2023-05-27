@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User : Identifiable, Codable{
+struct User : Identifiable, Codable {
     let id: Int
     var username: String
     var name: String
@@ -33,7 +33,7 @@ struct User : Identifiable, Codable{
     }
 }
 
-extension User{
+extension User {
     static let sampleUser: User =
     User(
         username: "testuser",

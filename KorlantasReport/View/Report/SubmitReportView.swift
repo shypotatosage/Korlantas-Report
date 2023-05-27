@@ -21,14 +21,14 @@ struct SubmitReportView: View {
     var body: some View {
         VStack{
             NavigationStack {
-                ScrollView{
+                ScrollView {
                     Text("Add a Report")
                         .customFont(.largeTitle)
                         .frame(maxWidth: .infinity, alignment: .center)
                         .listRowSeparator(.hidden)
                         .padding([.top])
                         .foregroundColor(Color(hex: "002C5F"))
-                    VStack(){
+                    VStack() {
                         Group {
                             Text("Judul Laporan")
                                 .customFont(.title).foregroundColor(Color(hex: "002C5F"))
@@ -82,7 +82,7 @@ struct SubmitReportView: View {
                                     alignment:  .topLeading)
                                 .padding()
                             
-                            DatePicker(selection: $dateHappen, in: ...Date.now, displayedComponents: .date){
+                            DatePicker(selection: $dateHappen, in: ...Date.now, displayedComponents: .date) {
                                 Text("\(dateHappen.formatted(date: .long, time: .omitted))")
                             }.padding()
                             
@@ -117,7 +117,8 @@ struct SubmitReportView: View {
                                     maxHeight: .zero,
                                     alignment:  .topLeading)
                                 .padding()
-//                          Add image from Galery
+                            
+                            // Add image from Galery
                             PhotosPicker(
                                 selection: $selectedItem,
                                 matching: .images,
@@ -139,7 +140,7 @@ struct SubmitReportView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 250, height: 250)
-                            }else{
+                            } else {
                                 ZStack{
                                     Rectangle()
                                         .fill(.gray)
@@ -153,13 +154,10 @@ struct SubmitReportView: View {
                         }
                         .padding(.bottom)
                         Group {
-                            Button("Submit"){
+                            Button("Submit") {
                                 if (newReport.title.isEmpty || newReport.location.isEmpty || newReport.description.isEmpty) {
                                     isError = true
-                                    
                                 } else {
-                                    //                            NavigationLink(destination:  MainView()) {
-                                    //                                Text("Submit")
                                     newReport.datetime = dateHappen.description
                                     isError = false
                                     reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: newReport.image)
@@ -174,8 +172,8 @@ struct SubmitReportView: View {
                     .textFieldStyle(.roundedBorder)
                     Spacer()
                 }
-//          Alert when report submitted
-            }.toast(isPresenting: $showToast){
+//          Alert when report has been submitted
+            }.toast(isPresenting: $showToast) {
                 AlertToast(type: .regular, title: "Laporan telah diterima dan akan segera diproses \(newReport.datetime)")
                             }
             .scrollContentBackground(.hidden)

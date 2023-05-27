@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct Report: Codable{
-//    let id: Int
+struct Report: Codable {
     var title: String
     var location: String
     var datetime: String
@@ -18,7 +17,6 @@ struct Report: Codable{
     var user: User
     
     init(title: String, location: String, datetime: String, description: String, image: String, status: String, user: User) {
-//        id = ID()
         self.title = title
         self.location = location
         self.datetime = datetime
@@ -30,7 +28,7 @@ struct Report: Codable{
 }
 
 extension Report{
-    static var emptyReport: Report{
+    static var emptyReport: Report {
         Report(title: "", location: "",datetime: "",description: "",image: "",status: "",user: User(username: "", name: "", tanggallahir: "", no_ktp: "", telp: "", profile_pic: "", password: "", role: "", status: ""))
     }
 }
