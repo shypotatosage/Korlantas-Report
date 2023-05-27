@@ -53,7 +53,7 @@ class ReportViewModel: ObservableObject {
         let url = URL(string: postURL)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        let json: [String: Any] = ["title": title, "location":location, "date":"2023-05-27", "description": "2023-05-27 15:59:19", "picture":image, "user_id": User.sampleUser.id]
+        let json: [String: Any] = ["title": title, "location":location, "time":"2023-05-27 15:59:19","description": "2023-05-27 15:59:19", "picture":image,"user_id": User.sampleUser.id]
         print(json)
         
         do {

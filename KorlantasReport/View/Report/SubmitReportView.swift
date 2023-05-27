@@ -84,8 +84,7 @@ struct SubmitReportView: View {
                             
                             DatePicker(selection: $dateHappen, in: ...Date.now, displayedComponents: .date) {
                                 Text("\(dateHappen.formatted(date: .long, time: .omitted))")
-                            }
-                            .padding()
+                            }.padding()
                             
                         }
                         Group {
@@ -157,7 +156,7 @@ struct SubmitReportView: View {
                                 if (newReport.title.isEmpty || newReport.location.isEmpty || newReport.description.isEmpty) {
                                     isError = true
                                 } else {
-                                    newReport.datetime = formatDate(newDate: dateHappen)
+                                    newReport.datetime = dateHappen.description
                                     isError = false
                                     reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: newReport.image)
                                     showToast.toggle()
@@ -180,21 +179,6 @@ struct SubmitReportView: View {
             .listRowSeparator(.hidden)
         }
         
-    }
-    
-    func formatDate(newDate: Date) -> String {
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = "MMM d, yyyy"
-        let date = formatter.string(from: newDate)
-        
-        formatter.dateFormat = "MMM d, yyyy"
-        let date1 = formatter.date(from: date)
-        
-        formatter.dateFormat = "yyyy-MM-dd"
-        let new = formatter.string(from: date1!)
-        
-        return new
     }
 }
 
