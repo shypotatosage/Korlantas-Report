@@ -12,7 +12,6 @@ struct KorlantasReportApp: App {
     @StateObject private var reportViewModel = ReportViewModel()
     var body: some Scene {
         WindowGroup {
-//            ContentView()
             SubmitReportView().environmentObject(reportViewModel)
         }
     }

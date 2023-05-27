@@ -12,28 +12,25 @@ import PhotosUI
 struct SubmitReportView: View {
     @State private var newReport = Report.emptyReport
     @EnvironmentObject var reportViewModel: ReportViewModel
+    @State var isError = false
         @State private var showToast = false
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
-//    @State var width: CGFloat
-//    var user: User
-    @State private var judul: String = ""
-    @State private var isiLaporan: String = ""
-    @State private var tanggalkejadian = Date.now
+    
+    @State private var dateHappen = Date.now
     var body: some View {
         VStack{
             NavigationStack {
-                //                List {
-                ScrollView{
+                ScrollView {
                     Text("Add a Report")
                         .customFont(.largeTitle)
                         .frame(maxWidth: .infinity, alignment: .center)
                         .listRowSeparator(.hidden)
                         .padding([.top])
                         .foregroundColor(Color(hex: "002C5F"))
-                    VStack(){
+                    VStack() {
                         Group {
-                            Text("Report Title")
+                            Text("Judul Laporan")
                                 .customFont(.title).foregroundColor(Color(hex: "002C5F"))
                                 .frame(
                                     maxWidth: .infinity,
@@ -47,8 +44,37 @@ struct SubmitReportView: View {
                             .padding()
                             .disableAutocorrection(true)
                         }
+                        if newReport.title.count > 255 {
+                            Text("Maks. 255 karakter")
+                                .foregroundColor(.red)
+                        } else if isError == true && newReport.title.isEmpty {
+                            Text("Judul Laporan Harus Diisi")
+                                .foregroundColor(.red)
+                        }
                         Group {
-                            Text("Tanggal dan Waktu Kejadian")
+                            Text("Lokasi Kejadian")
+                                .customFont(.title).foregroundColor(Color(hex: "002C5F"))
+                                .frame(
+                                    maxWidth: .infinity,
+                                    maxHeight: .zero,
+                                    alignment:  .topLeading)
+                                .padding()
+                            TextField(
+                                "Masukkan Lokasi Kejadian",
+                                text: $newReport.location
+                            )
+                            .padding()
+                            .disableAutocorrection(true)
+                        }
+                        if newReport.location.count > 255 {
+                            Text("Maks. 255 karakter")
+                                .foregroundColor(.red)
+                        } else if isError == true && newReport.location.isEmpty {
+                            Text("Lokasi Kejadian Harus Diisi")
+                                .foregroundColor(.red)
+                        }
+                        Group {
+                            Text("Tanggal Kejadian")
                                 .customFont(.title).foregroundColor(Color(hex: "002C5F"))
                                 .frame(
                                     maxWidth: .infinity,
@@ -56,8 +82,8 @@ struct SubmitReportView: View {
                                     alignment:  .topLeading)
                                 .padding()
                             
-                            DatePicker(selection: $tanggalkejadian, in: ...Date.now, displayedComponents: .date){
-                                Text("\(tanggalkejadian.formatted(date: .long, time: .omitted))")
+                            DatePicker(selection: $dateHappen, in: ...Date.now, displayedComponents: .date) {
+                                Text("\(dateHappen.formatted(date: .long, time: .omitted))")
                             }.padding()
                             
                         }
@@ -71,10 +97,17 @@ struct SubmitReportView: View {
                                 .padding()
                             TextField(
                                 "Ceritakan Laporan / Keluhan Anda",
-                                text: $newReport.location
+                                text: $newReport.description
                             )
                             .padding()
                             .disableAutocorrection(true)
+                        }
+                        if newReport.description.count > 500 {
+                            Text("Maks. 500 karakter")
+                                .foregroundColor(.red)
+                        } else if isError == true  && newReport.description.isEmpty {
+                            Text("Laporan Kejadian Harus Diisi")
+                                .foregroundColor(.red)
                         }
                         Group{
                             Text("Gambar")
@@ -105,30 +138,41 @@ struct SubmitReportView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 250, height: 250)
-                            }else{
-                                Image("defaultprofile")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 150, height: 150)
+                            } else {
+                                ZStack{
+                                    Rectangle()
+                                        .fill(.gray)
+                                        .frame(width: 250, height: 150)
+                                    VStack{
+                                        Text("Add Image")
+                                        Image(systemName: "plus.app")
+                                    }
+                                }
                             }
                         }
                         .padding(.bottom)
                         Group {
-                            Button("Submit"){
-//                            NavigationLink(destination:  MainView()) {
-//                                Text("Submit")
-                                reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: newReport.image)
-                                showToast.toggle()
+                            Button("Submit") {
+                                if (newReport.title.isEmpty || newReport.location.isEmpty || newReport.description.isEmpty) {
+                                    isError = true
+                                } else {
+                                    newReport.datetime = dateHappen.description
+                                    isError = false
+                                    reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: newReport.image)
+                                    showToast.toggle()
+                                }
                             }
                             .buttonStyle(BlueButton())
                         }
                         
-                    }.padding()
-                        .textFieldStyle(.roundedBorder
-                        )
-                    Spacer()        }
-            }.toast(isPresenting: $showToast){
-                AlertToast(type: .regular, title: "\(newReport.title), \(newReport.location)")
+                    }
+                    .padding()
+                    .textFieldStyle(.roundedBorder)
+                    Spacer()
+                }
+//          Alert when report has been submitted
+            }.toast(isPresenting: $showToast) {
+                AlertToast(type: .regular, title: "Laporan telah diterima dan akan segera diproses \(newReport.datetime)")
                             }
             .scrollContentBackground(.hidden)
             
@@ -141,7 +185,6 @@ struct SubmitReportView: View {
 
 struct SubmitReportView_Previews: PreviewProvider {
     static var previews: some View {
-        //        SubmitReportView(isAddViewMovie: .constant(true))
         SubmitReportView()
     }
 }

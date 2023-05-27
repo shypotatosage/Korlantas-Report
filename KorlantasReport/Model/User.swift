@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct User : Identifiable, Codable{
-    let id: UUID
+struct User : Identifiable, Codable {
+    let id: Int
     var username: String
     var name: String
     var tanggallahir: String
@@ -19,8 +19,8 @@ struct User : Identifiable, Codable{
     var role: String
     var status: String
     
-    init(id: UUID = UUID(), username: String, name: String, tanggallahir: String, no_ktp: String, telp: String, profile_pic: String, password: String, role: String, status: String) {
-        self.id = id
+    init(username: String, name: String, tanggallahir: String, no_ktp: String, telp: String, profile_pic: String, password: String, role: String, status: String) {
+        id = 1
         self.username = username
         self.name = name
         self.tanggallahir = tanggallahir
@@ -33,7 +33,7 @@ struct User : Identifiable, Codable{
     }
 }
 
-extension User{
+extension User {
     static let sampleUser: User =
     User(
         username: "testuser",
