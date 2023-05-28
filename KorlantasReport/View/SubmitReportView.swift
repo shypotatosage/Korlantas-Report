@@ -13,7 +13,7 @@ struct SubmitReportView: View {
     @State private var newReport = Report.emptyReport
     @EnvironmentObject var reportViewModel: ReportViewModel
     @State var isError = false
-        @State private var showToast = false
+    @State private var showToast = false
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
     
@@ -82,14 +82,14 @@ struct SubmitReportView: View {
                                     alignment:  .topLeading)
                                 .padding()
                             
-                            DatePicker(selection: $dateHappen, in: ...Date.now, displayedComponents: .date) {
-                                Text("\(dateHappen.formatted(date: .long, time: .omitted))")
-                            }.padding()
-                            
+                            DatePicker(selection: $dateHappen, in: ...Date.now, displayedComponents: [.date, .hourAndMinute]) {}
+                                .padding()
+                                .labelsHidden()
                         }
                         Group {
                             Text("Laporan /  Keluhan")
-                                .customFont(.title).foregroundColor(Color(hex: "002C5F"))
+                                .customFont(.title)
+                                .foregroundColor(Color(hex: "002C5F"))
                                 .frame(
                                     maxWidth: .infinity,
                                     maxHeight: .zero,
@@ -156,18 +156,17 @@ struct SubmitReportView: View {
                                 if (newReport.title.isEmpty || newReport.location.isEmpty || newReport.description.isEmpty) {
                                     isError = true
                                 } else {
-                                    newReport.datetime = dateHappen.description
+                                    newReport.datetime = formatDate(newDate: dateHappen.description)
                                     
-                                    var imageStr = ""
+                                    var imageExist = false
                                     
                                     if (selectedImageData != nil) {
-                                        let uiImage = UIImage(data: selectedImageData!)
-                                        let imageData = uiImage!.jpegData( compressionQuality: 0.1) ?? Data()
-                                        imageStr = imageData.base64EncodedString()
+                                        imageExist = true
                                     }
                                     
                                     isError = false
-                                    reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: selectedImageData ?? Data())
+                                    
+                                    reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: selectedImageData ?? Data(), imageExist: imageExist)
                                     showToast.toggle()
                                 }
                             }
@@ -181,12 +180,23 @@ struct SubmitReportView: View {
                 }
             }.toast(isPresenting: $showToast) {
                 AlertToast(type: .regular, title: "Laporan telah diterima dan akan segera diproses \(newReport.datetime)")
-                            }
+            }
             .scrollContentBackground(.hidden)
             
             .listRowSeparator(.hidden)
         }
+    }
+    
+    func formatDate(newDate: String) -> String {
+        let formatter = DateFormatter()
         
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        let date1 = formatter.date(from: newDate)
+        
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let new = formatter.string(from: date1!)
+        
+        return new
     }
 }
 
