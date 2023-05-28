@@ -45,10 +45,10 @@ class ReportViewModel: ObservableObject {
         _ = try await report.value
     }
     
-    func submitReport(title: String, location: String, datetime: String, description: String, image: String) {
+    func submitReport(title: String, location: String, datetime: String, description: String, image: Data) {
         let newReport = Report(title: title,location: location,datetime: datetime, description: description, image: image, status: "Pending", user: User.sampleUser)
         
-        if (image == "") {
+        if (image == Data()) {
             // Create Post Request
             let url = URL(string: postURL)!
             var request = URLRequest(url: url)
@@ -80,19 +80,30 @@ class ReportViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         } else {
-            let paramStr = "picture=\(image)"
-            let paramData = paramStr.data(using: .utf8) ?? Data()
+            var multipart = MultipartRequest()
             
-            let json: [String: Any] = ["title": title, "location":location, "time":"2023-05-27 15:59:19", "description": "2023-05-27 15:59:19", "picture": paramStr,"user_id": User.sampleUser.id]
+                let paramStr = "picture=\(image)"
+                let paramData = paramStr.data(using: .utf8) ?? Data()
+            let json: [String: String] = ["title": title, "location":location, "time":"2023-05-27 15:59:19","description": "2023-05-27 15:59:19", "user_id": String(User.sampleUser.id)]
+            
+            for field in json {
+                multipart.add(key: field.key, value: field.value)
+            }
+
+            multipart.add(
+                key: "picture",
+                fileName: "pic.jpg",
+                fileMimeType: "image/png",
+                fileData: image
+            )
             
             do {
-                var jsonData = try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted) + paramData
                 let boundary = UUID().uuidString
                 let url = URL(string: postURL)!
                 var request = URLRequest(url: url)
                 request.httpMethod = "POST"
-                request.httpBody = jsonData
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.httpBody = multipart.httpBody
+                request.setValue(multipart.httpContentTypeHeaderValue, forHTTPHeaderField: "Content-Type")
                 
                 let task = URLSession.shared.dataTask(with: request) { data, response, error in
                     guard let data = data, error == nil else {
@@ -114,4 +125,73 @@ class ReportViewModel: ObservableObject {
     }
 }
 
+public extension Data {
 
+    mutating func append(
+        _ string: String,
+        encoding: String.Encoding = .utf8
+    ) {
+        guard let data = string.data(using: encoding) else {
+            return
+        }
+        append(data)
+    }
+}
+
+public struct MultipartRequest {
+    
+    public let boundary: String
+    
+    private let separator: String = "\r\n"
+    private var data: Data
+
+    public init(boundary: String = UUID().uuidString) {
+        self.boundary = boundary
+        self.data = .init()
+    }
+    
+    private mutating func appendBoundarySeparator() {
+        data.append("--\(boundary)\(separator)")
+    }
+    
+    private mutating func appendSeparator() {
+        data.append(separator)
+    }
+
+    private func disposition(_ key: String) -> String {
+        "Content-Disposition: form-data; name=\"\(key)\""
+    }
+
+    public mutating func add(
+        key: String,
+        value: String
+    ) {
+        appendBoundarySeparator()
+        data.append(disposition(key) + separator)
+        appendSeparator()
+        data.append(value + separator)
+    }
+
+    public mutating func add(
+        key: String,
+        fileName: String,
+        fileMimeType: String,
+        fileData: Data
+    ) {
+        appendBoundarySeparator()
+        data.append(disposition(key) + "; filename=\"\(fileName)\"" + separator)
+        data.append("Content-Type: \(fileMimeType)" + separator + separator)
+        data.append(fileData)
+        appendSeparator()
+    }
+
+    public var httpContentTypeHeaderValue: String {
+        "multipart/form-data; boundary=\(boundary)"
+    }
+
+    public var httpBody: Data {
+        var bodyData = data
+        bodyData.append("--\(boundary)--")
+        return bodyData
+    }
+}

@@ -167,7 +167,7 @@ struct SubmitReportView: View {
                                     }
                                     
                                     isError = false
-                                    reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: imageStr)
+                                    reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: selectedImageData ?? Data())
                                     showToast.toggle()
                                 }
                             }
