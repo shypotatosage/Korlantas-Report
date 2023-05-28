@@ -47,37 +47,69 @@ class ReportViewModel: ObservableObject {
     
     func submitReport(title: String, location: String, datetime: String, description: String, image: String) {
         let newReport = Report(title: title,location: location,datetime: datetime, description: description, image: image, status: "Pending", user: User.sampleUser)
-        print(newReport)
         
-        // Create Post Request
-        let url = URL(string: postURL)!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        let json: [String: Any] = ["title": title, "location":location, "time":"2023-05-27 15:59:19","description": "2023-05-27 15:59:19", "picture":image,"user_id": User.sampleUser.id]
-        print(json)
-        
-        do {
-            var jsonData = try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted)
+        if (image == "") {
+            // Create Post Request
+            let url = URL(string: postURL)!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            let json: [String: Any] = ["title": title, "location":location, "time":"2023-05-27 15:59:19","description": "2023-05-27 15:59:19", "picture":image,"user_id": User.sampleUser.id]
+            print(json)
+            
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted)
                 request.httpMethod = "POST"
                 request.httpBody = jsonData
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 print(request)
-            
+                
                 let task = URLSession.shared.dataTask(with: request) { data, response, error in
                     guard let data = data, error == nil else {
                         print(error?.localizedDescription ?? "No data")
                         return
                     }
-                
+                    
                     let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
                     if let responseJSON = responseJSON as? [String: Any] {
                         print(responseJSON)
                     }
                     print(response!)
                 }
-            task.resume()
-        } catch {
-            print(error.localizedDescription)
+                task.resume()
+            } catch {
+                print(error.localizedDescription)
+            }
+        } else {
+            let paramStr = "picture=\(image)"
+            let paramData = paramStr.data(using: .utf8) ?? Data()
+            
+            let json: [String: Any] = ["title": title, "location":location, "time":"2023-05-27 15:59:19", "description": "2023-05-27 15:59:19", "picture": paramStr,"user_id": User.sampleUser.id]
+            
+            do {
+                var jsonData = try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted) + paramData
+                let boundary = UUID().uuidString
+                let url = URL(string: postURL)!
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.httpBody = jsonData
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                    guard let data = data, error == nil else {
+                        print(error?.localizedDescription ?? "No data")
+                        return
+                    }
+                    
+                    let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                    if let responseJSON = responseJSON as? [String: Any] {
+                        print(responseJSON)
+                    }
+                    print(response!)
+                }
+                task.resume()
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
 }

@@ -157,8 +157,17 @@ struct SubmitReportView: View {
                                     isError = true
                                 } else {
                                     newReport.datetime = dateHappen.description
+                                    
+                                    var imageStr = ""
+                                    
+                                    if (selectedImageData != nil) {
+                                        let uiImage = UIImage(data: selectedImageData!)
+                                        let imageData = uiImage!.jpegData( compressionQuality: 0.1) ?? Data()
+                                        imageStr = imageData.base64EncodedString()
+                                    }
+                                    
                                     isError = false
-                                    reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: newReport.image)
+                                    reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: imageStr)
                                     showToast.toggle()
                                 }
                             }
