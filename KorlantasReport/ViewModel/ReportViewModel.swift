@@ -49,7 +49,6 @@ class ReportViewModel: ObservableObject {
         let newReport = Report(title: title,location: location,datetime: datetime, description: description, image: image, status: "Pending", user: User.sampleUser)
         
         if (image == Data()) {
-            // Create Post Request
             let url = URL(string: postURL)!
             var request = URLRequest(url: url)
             request.httpMethod = "POST"

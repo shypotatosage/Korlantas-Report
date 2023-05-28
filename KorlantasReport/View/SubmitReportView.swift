@@ -179,7 +179,6 @@ struct SubmitReportView: View {
                     .textFieldStyle(.roundedBorder)
                     Spacer()
                 }
-//          Alert when report has been submitted
             }.toast(isPresenting: $showToast) {
                 AlertToast(type: .regular, title: "Laporan telah diterima dan akan segera diproses \(newReport.datetime)")
                             }
