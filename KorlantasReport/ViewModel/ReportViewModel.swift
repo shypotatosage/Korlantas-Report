@@ -49,7 +49,7 @@ class ReportViewModel: ObservableObject {
             let url = URL(string: postURL)!
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
-            let json: [String: Any] = ["title": title, "location":location, "time": datetime, "description": description, "user_id": User.sampleUser.id]
+            let json: [String: Any] = ["title": title, "location":location, "datetime": datetime, "description": description, "user_id": User.sampleUser.id]
             
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted)
@@ -76,7 +76,7 @@ class ReportViewModel: ObservableObject {
         } else {
             var multipart = MultipartRequest()
             
-            let json: [String: String] = ["title": title, "location":location, "time":"2023-05-27 15:59:19","description": "2023-05-27 15:59:19", "user_id": String(User.sampleUser.id)]
+            let json: [String: String] = ["title": title, "location":location, "datetime":"2023-05-27 15:59:19","description": "2023-05-27 15:59:19", "user_id": String(User.sampleUser.id)]
             
             for field in json {
                 multipart.add(key: field.key, value: field.value)
