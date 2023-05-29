@@ -11,39 +11,7 @@ let postURL = "http://127.0.0.1:8000/api/submit-report"
 
 class ReportViewModel: ObservableObject {
     @Published var reports: [Report] = []
-    
-    private static func fileURL() throws -> URL {
-        try FileManager.default.url(
-            for: .documentDirectory,
-            in: .userDomainMask,
-            appropriateFor: nil,
-            create: false
-        )
-        .appendingPathComponent("reports.data")
-    }
-    
-    func load() async throws {
-        let report = Task<[Report], Error> {
-            let fileURL = try Self.fileURL()
-            guard let data = try? Data(contentsOf: fileURL) else {
-                return []
-            }
-            let reports = try JSONDecoder().decode([Report].self, from: data)
-            return reports
-        }
-        let reports = try await report.value
-        self.reports = reports
-    }
-    
-    func save(reports: [Report]) async throws {
-        let report = Task {
-            let data = try JSONEncoder().encode(reports)
-            let outfile = try Self.fileURL()
-            try data.write(to: outfile)
-        }
-        
-        _ = try await report.value
-    }
+
     func submitReport(title: String, location: String, datetime: String, description: String, image: Data, imageExist: Bool) {
         if (!imageExist) {
             let url = URL(string: postURL)!
@@ -76,7 +44,7 @@ class ReportViewModel: ObservableObject {
         } else {
             var multipart = MultipartRequest()
             
-            let json: [String: String] = ["title": title, "location":location, "datetime":"2023-05-27 15:59:19","description": "2023-05-27 15:59:19", "user_id": String(User.sampleUser.id)]
+            let json: [String: String] = ["title": title, "location":location, "datetime":datetime,"description": description, "user_id": String(User.sampleUser.id)]
             
             for field in json {
                 multipart.add(key: field.key, value: field.value)

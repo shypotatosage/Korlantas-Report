@@ -179,7 +179,7 @@ struct SubmitReportView: View {
                     Spacer()
                 }
             }.toast(isPresenting: $showToast) {
-                AlertToast(type: .regular, title: "Laporan telah diterima dan akan segera diproses \(newReport.datetime)")
+                AlertToast(type: .regular, title: "Laporan telah diterima dan akan segera diproses")
             }
             .scrollContentBackground(.hidden)
             
