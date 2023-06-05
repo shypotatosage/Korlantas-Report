@@ -16,7 +16,7 @@
 		04A8DA7F2A12198D008BD700 /* KorlantasReportUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8DA7E2A12198D008BD700 /* KorlantasReportUITestsLaunchTests.swift */; };
 		068372352A121C8300CA09EA /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068372342A121C8300CA09EA /* Report.swift */; };
 		068372372A121C9600CA09EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068372362A121C9600CA09EA /* User.swift */; };
-		068372392A121CD800CA09EA /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068372382A121CD800CA09EA /* ReportViewModel.swift */; };
+		068372392A121CD800CA09EA /* SubmitReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068372382A121CD800CA09EA /* SubmitReportViewModel.swift */; };
 		068372422A121D0400CA09EA /* BlueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683723D2A121D0400CA09EA /* BlueButton.swift */; };
 		068372432A121D0400CA09EA /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683723E2A121D0400CA09EA /* CustomFont.swift */; };
 		068372442A121D0400CA09EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683723F2A121D0400CA09EA /* Color.swift */; };
@@ -59,7 +59,7 @@
 		04A8DA7E2A12198D008BD700 /* KorlantasReportUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorlantasReportUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		068372342A121C8300CA09EA /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		068372362A121C9600CA09EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		068372382A121CD800CA09EA /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
+		068372382A121CD800CA09EA /* SubmitReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitReportViewModel.swift; sourceTree = "<group>"; };
 		0683723D2A121D0400CA09EA /* BlueButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueButton.swift; sourceTree = "<group>"; };
 		0683723E2A121D0400CA09EA /* CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		0683723F2A121D0400CA09EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 		068372332A121C1800CA09EA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				068372382A121CD800CA09EA /* ReportViewModel.swift */,
+				068372382A121CD800CA09EA /* SubmitReportViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -352,7 +352,7 @@
 				068372442A121D0400CA09EA /* Color.swift in Sources */,
 				04A8DA622A12198B008BD700 /* KorlantasReportApp.swift in Sources */,
 				068372352A121C8300CA09EA /* Report.swift in Sources */,
-				068372392A121CD800CA09EA /* ReportViewModel.swift in Sources */,
+				068372392A121CD800CA09EA /* SubmitReportViewModel.swift in Sources */,
 				068372702A121D6300CA09EA /* SubmitReportView.swift in Sources */,
 				068372422A121D0400CA09EA /* BlueButton.swift in Sources */,
 			);

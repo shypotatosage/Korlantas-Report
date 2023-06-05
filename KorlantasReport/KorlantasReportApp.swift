@@ -9,10 +9,10 @@ import SwiftUI
 
 @main
 struct KorlantasReportApp: App {
-    @StateObject private var reportViewModel = ReportViewModel()
+    @StateObject private var submitReportViewModel = SubmitReportViewModel()
     var body: some Scene {
         WindowGroup {
-            SubmitReportView().environmentObject(reportViewModel)
+            SubmitReportView().environmentObject(submitReportViewModel)
         }
     }
 }

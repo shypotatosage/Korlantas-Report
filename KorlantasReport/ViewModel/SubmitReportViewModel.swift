@@ -9,7 +9,7 @@ import Foundation
 
 let postURL = "http://127.0.0.1:8000/api/submit-report"
 
-class ReportViewModel: ObservableObject {
+class SubmitReportViewModel: ObservableObject {
     @Published var reports: [Report] = []
 
     func submitReport(title: String, location: String, datetime: String, description: String, image: Data, imageExist: Bool) {

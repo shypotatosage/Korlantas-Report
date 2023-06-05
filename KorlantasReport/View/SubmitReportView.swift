@@ -11,7 +11,7 @@ import PhotosUI
 
 struct SubmitReportView: View {
     @State private var newReport = Report.emptyReport
-    @EnvironmentObject var reportViewModel: ReportViewModel
+    @EnvironmentObject var submitReportViewModel: SubmitReportViewModel
     @State var isError = false
     @State private var showToast = false
     @State private var selectedItem: PhotosPickerItem? = nil
@@ -166,7 +166,7 @@ struct SubmitReportView: View {
                                     
                                     isError = false
                                     
-                                    reportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: selectedImageData ?? Data(), imageExist: imageExist)
+                                    submitReportViewModel.submitReport(title: newReport.title, location: newReport.location, datetime: newReport.datetime, description: newReport.description, image: selectedImageData ?? Data(), imageExist: imageExist)
                                     showToast.toggle()
                                 }
                             }
